@@ -1,0 +1,33 @@
+* {
+    margin: 0;  
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.actions {
+    font-size: 1.5em;
+    position: fixed;
+    top: 10px;
+    left: 15px;
+}
+.actions > .icon {
+    padding: 7px;
+    transition: all 0.3s;
+}
+.actions .active {
+    color: red;
+    transform: scale(1.2);
+}
