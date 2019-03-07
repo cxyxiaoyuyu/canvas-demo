@@ -8,6 +8,41 @@ var lastPoint = {}
 
 autoSetCanvasSize()
 
+pen.onclick = function(){
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+    eraserEnable = false
+}
+eraser.onclick = function(){
+    eraser.classList.add('active')
+    pen.classList.remove('active')
+    eraserEnable = true
+}
+clear.onclick = function(){
+    context.fillStyle="#fff";
+    context.beginPath()
+    context.fillRect(0,0,canvas.width,canvas.height)
+    context.closePath()
+}
+red.onclick = function(){
+    this.classList.add('active')
+    blue.classList.remove('active')
+    green.classList.remove('active')
+    context.strokeStyle = 'red'
+}
+green.onclick = function(){
+    this.classList.add('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+    context.strokeStyle = 'green'
+}
+blue.onclick = function(){
+    this.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+    context.strokeStyle = 'blue'
+}
+
 if('ontouchstart' in document.body){
     canvas.ontouchstart = function(ev){
         using = true
@@ -23,6 +58,7 @@ if('ontouchstart' in document.body){
     canvas.ontouchmove = function(ev){
         var x = ev.touches[0].clientX
         var y = ev.touches[0].clientY
+        console.log(using)
         if(using){
             if(eraserEnable){
                 context.clearRect(x-10,y-10,20,20)
@@ -37,40 +73,8 @@ if('ontouchstart' in document.body){
     canvas.ontouchend = function(){
         using = false
     }
-    pen.ontouch = function(){
-        pen.classList.add('active')
-        eraser.classList.remove('active')
-        eraserEnable = false
-    }
-    eraser.ontouch = function(){
-        eraser.classList.add('active')
-        pen.classList.remove('active')
-        eraserEnable = true
-    }
-    clear.ontouch = function(){
-        context.fillStyle="#fff";
-        context.beginPath()
-        context.fillRect(0,0,canvas.width,canvas.height)
-        context.closePath()
-    }
 
 }else{
-    pen.onclick = function(){
-        pen.classList.add('active')
-        eraser.classList.remove('active')
-        eraserEnable = false
-    }
-    eraser.onclick = function(){
-        eraser.classList.add('active')
-        pen.classList.remove('active')
-        eraserEnable = true
-    }
-    clear.onclick = function(){
-        context.fillStyle="#fff";
-        context.beginPath()
-        context.fillRect(0,0,canvas.width,canvas.height)
-        context.closePath()
-    }
     canvas.onmousedown = function(ev){
         using = true
         var x = ev.clientX

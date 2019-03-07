@@ -31,3 +31,27 @@ canvas {
     color: red;
     transform: scale(1.2);
 }
+ul {
+    position: fixed;
+    top: 50px;
+    left: 12px;
+}
+ul li{
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s;
+    border-radius: 50%;
+    margin: 10px;
+}
+#red {
+    background: red;
+}
+#green {
+    background: green;
+}
+#blue {
+    background: blue;
+}
+ul li.active{
+    transform: scale(1.2);
+}
