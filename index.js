@@ -1,6 +1,7 @@
 // 1 get canvas
 var canvas = document.getElementById('canvas')
 var context = canvas.getContext('2d')
+var lineWidth = 5
 
 var eraserEnable = false
 var using = false
@@ -23,6 +24,20 @@ clear.onclick = function(){
     context.beginPath()
     context.fillRect(0,0,canvas.width,canvas.height)
     context.closePath()
+}
+down.onclick = function(){
+    var url = canvas.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'my image'
+    a.click()
+}
+thin.onclick = function(){
+    lineWidth = 5
+}
+thick.onclick = function(){
+    lineWidth = 10
 }
 red.onclick = function(){
     this.classList.add('active')
@@ -107,9 +122,10 @@ if('ontouchstart' in document.body){
 
 
 function drawLine(x1,y1,x2,y2){
+    console.log(lineWidth)
     context.beginPath()
     context.moveTo(x1,y1)
-    context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2,y2)
     context.stroke()
     context.closePath()

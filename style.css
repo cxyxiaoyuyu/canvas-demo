@@ -31,12 +31,12 @@ canvas {
     color: red;
     transform: scale(1.2);
 }
-ul {
+ul.color {
     position: fixed;
     top: 50px;
     left: 12px;
 }
-ul li{
+ul.color li{
     width: 20px;
     height: 20px;
     transition: all 0.3s;
@@ -52,6 +52,20 @@ ul li{
 #blue {
     background: blue;
 }
-ul li.active{
+ul.color li.active{
     transform: scale(1.2);
+}
+ul.size {
+    position: fixed;
+    top: 12px;
+    right: 28px;
+}
+#thin {
+    width: 20px;
+    border-bottom: 5px solid black;
+    margin: 10px 0;
+}
+#thick {
+    width: 20px;
+    border-bottom: 10px solid black;
 }
